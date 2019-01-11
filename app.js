@@ -1,24 +1,21 @@
 const express = require('express');
-const methodOverride = require('method-override');
 const app = express();
-const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/donors', { useNewUrlParser: true });
-
+const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
+const mongoose = require('mongoose');
 
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
-let donors = [
-    {name: 'Maria', age: '23', race: 'African-American', college: 'Fisk, Class of 2014'},
-    {name: 'Jasmin', age: '19', race: 'White', college: 'New York University, Class of 2020'},
-    {name: 'Rosa', age: '26', race: 'Korean', college: 'University of California Los Angeles, Class of 2013'},
-    {name: 'Eva Lynn', age: '22', race: 'Brazillian', college: 'Howard University, Class of 2016'}
-]
+// let donors = [
+//     {name: 'Maria', age: '23', race: 'African-American', college: 'Fisk, Class of 2014'},
+//     {name: 'Jasmin', age: '19', race: 'White', college: 'New York University, Class of 2020'},
+//     {name: 'Rosa', age: '26', race: 'Korean', college: 'University of California Los Angeles, Class of 2013'},
+//     {name: 'Eva Lynn', age: '22', race: 'Brazillian', college: 'Howard University, Class of 2016'}
+// ]
 
 const Donor = mongoose.model('Donor', {
     name: String,
@@ -105,6 +102,11 @@ app.get('/thank-you', (req, res) => {
     res.render('thankyou')
 })
 
-app.listen(3000, () => {
+const port = process.env.PORT || 3000
+app.listen(port, () => {
     console.log('listening')
+    const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/donors';
+    mongoose.connect(db)
 })
+
+module.exports = app
