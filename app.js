@@ -21,8 +21,7 @@ const Donor = mongoose.model('Donor', {
     name: String,
     age: String,
     race: String,
-    college: String,
-    approved: Boolean
+    status: { type: Boolean, default: 0 }
 });
 
 app.get('/', (req, res) => {
