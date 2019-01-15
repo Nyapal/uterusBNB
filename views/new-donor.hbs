@@ -1,18 +1,43 @@
-<div class="container">
+<div class="container text-center">
     <h2>Donor Application</h2>
-    <form method="POST" action="/donors">
-        <div class="donor-application">
-            <input class="col-md-4 donor-inputs" id="fname" type="text" name="fname" value="{{donor.fname}}" placeholder="First Name">
-            <input class="col-md-4 donor-inputs" id="lname" type="text" name="lname" value="{{donor.lname}}"  placeholder="Last Name">
-                <br>
-            <input class="col-md-4 donor-inputs" id="age" type="text" name="age" value="{{donor.age}}" placeholder="Age">
-            <input class="col-md-4 donor-inputs" id="height" type="text" name="hair" value="{{donor.height}}" placeholder="Height">
-                <br>
-            <input class="col-md-4 donor-inputs" id="eyes" type="text" name="eyes" value="{{donor.eyes}}" placeholder="Eye Color">
-            <input class="col-md-4 donor-inputs" id="hair" type="text" name="hair" value="{{donor.hair}}" placeholder="Hair Color">
-                <br>
-            <input class="col-md-4 donor-inputs" id="race" type="text" name="race" value="{{donor.race}}" placeholder="Race">
-            <input class="col-md-4 donor-inputs" id="ethnicity" type="text" name="ethnicity" value="{{donor.ethnicity}}" placeholder="Ethnicity">
-            </div>
-        </form>
+    <form method="POST" action="/donors" style="text-align: center;">
+        <table align="center">
+            <tr class="table-row">
+                <td class="table-data">
+                    <input class="donor-inputs" id="fname" type="text" name="fname" value="{{donor.fname}}" placeholder="First Name">
+                </td>
+                <td class="table-data">
+                    <input class="donor-inputs" id="lname" type="text" name="lname" value="{{donor.lname}}"  placeholder="Last Name">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-data">
+                    <input class="donor-inputs" id="age" type="text" name="age" value="{{donor.age}}" placeholder="Age">
+
+                </td>
+                <td class="table-data">
+                    <input class="donor-inputs" id="height" type="text" name="height" value="{{donor.height}}" placeholder="Height">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-data">
+                    <input class="donor-inputs" id="eyes" type="text" name="eyes" value="{{donor.eyes}}" placeholder="Eye Color">
+                </td>
+                <td class="table-data">
+                    <input class="donor-inputs" id="hair" type="text" name="hair" value="{{donor.hair}}" placeholder="Hair Color">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-data">
+                    <input class="donor-inputs" id="race" type="text" name="race" value="{{donor.race}}" placeholder="Race">
+                </td>
+                <td class="table-data">
+                    <input class="donor-inputs" id="ethnicity" type="text" name="ethnicity" value="{{donor.ethnicity}}" placeholder="Ethnicity">
+                </td>
+            </tr>
+        </table>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
 </div>
