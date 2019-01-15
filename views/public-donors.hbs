@@ -1,16 +1,46 @@
 <div class="container">
     <h1 style="text-align:center"> Meet Our Donors </h1>
-
-    {{#each donors}}
-    {{#if this.status}}
-        <div class="col-md-4">
-            <a href="/donors/{{this._id}}">
+    <div class="col-md-12">
+        {{#each donors}}
+            {{#if this.status}}
                 {{this.fname}}
-            </a>
+            {{/if}}
+        {{else}}
+            <h4> No Available Donors at this time </h4>
+        {{/each}}
+    </div>
+
+    <!-- <div class="col-md-12">
+        {{#each donors}}
+        {{#if this.status}}
+        <div class="col-md-6">
+            <table align="center">
+                <tr>
+                    <td style="padding: 7px;">
+                        {{this.fname}}
+                    </td>
+                    <td style="padding: 7px;">
+                        {{this.lname}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 7px;">
+                        {{this.ethnicity}}
+                    </td>
+                    <td style="padding: 7px;">
+                        {{this.age}}
+                    </td>
+                </tr>
+            </table>
         </div>
-    {{/if}}
+        {{/if}}
     {{else}}
-        <h4 style="text-align:center"> No Available Donors at this time </h4>
+    <h4 style="text-align:center"> No Available Donors at this time </h4>
     {{/each}}
+
+    </div> -->
+
+
+
 
 </div>

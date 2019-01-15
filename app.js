@@ -12,11 +12,17 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
 const Donor = mongoose.model('Donor', {
-    name: String,
+    fname: String,
+    lname: String,
     age: String,
+    height: String,
+    eyes: String,
+    hair: String,
     race: String,
+    ethnicity: String,
     status: { type: Boolean, default: 0 }
 });
+
 
 const Family = mongoose.model('Family', {
     name: String,
@@ -115,7 +121,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/thank-you', (req, res) => {
-    res.render('thankyou')
+    res.render('thank-you')
 })
 
 const port = process.env.PORT || 3000

@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 /* NAVIGATION */
@@ -22,13 +23,35 @@ html, body {
     margin-top: 150px;
 }
 
-/* DONOR APPLICATION */
-.donor-application {
+/* THANK YOU */
+.thank-you {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
-.donor-inputs {
-    margin: 20px 5px;
+/* DONOR APPLICATION */
+table {
+    border: none;
 }
 
+td, th {
+   border: none;
+}
+.table-row {
+    margin: 25px;
+    border: none;
+}
+.table-data {
+    padding: 15px;
+    border: none;
+}
 
 /* LOGIN PAGE */
+
+
+/* DONOR PROFILE */
+.donor-profile-td {
+    padding: 10px;
+}
