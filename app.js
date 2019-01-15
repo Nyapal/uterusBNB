@@ -8,14 +8,8 @@ const mongoose = require('mongoose');
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static('public'))
 app.use(methodOverride('_method'))
-
-// let donors = [
-//     {name: 'Maria', age: '23', race: 'African-American', college: 'Fisk, Class of 2014'},
-//     {name: 'Jasmin', age: '19', race: 'White', college: 'New York University, Class of 2020'},
-//     {name: 'Rosa', age: '26', race: 'Korean', college: 'University of California Los Angeles, Class of 2013'},
-//     {name: 'Eva Lynn', age: '22', race: 'Brazillian', college: 'Howard University, Class of 2016'}
-// ]
 
 const Donor = mongoose.model('Donor', {
     name: String,
@@ -24,10 +18,12 @@ const Donor = mongoose.model('Donor', {
     status: { type: Boolean, default: 0 }
 });
 
+//LANDING PAGE
 app.get('/', (req, res) => {
     res.render('home')
 })
 
+// ALL DONORS - Nurses view only
 app.get('/donors', (req, res) => {
     Donor.find()
     .then(donors => {
@@ -38,11 +34,12 @@ app.get('/donors', (req, res) => {
     })
 })
 
+// NEW DONOR APPLICATION
 app.get('/donors/new', (req, res) => {
     res.render('new-donor', {})
 })
 
-// DONOR APPLICATION
+
 app.post('/donors', (req, res) => {
     Donor.create(req.body).then((donor) => {
         console.log(donor);
@@ -55,7 +52,8 @@ app.post('/donors', (req, res) => {
 // INDIVIDUAL DONOR PROFILES
 app.get('/donors/:id', (req, res) => {
     Donor.findById(req.params.id).then((donor) => {
-        res.render('public-donors', {donor: donor})
+        console.log(donor)
+        res.render('donor-profile', {donor: donor})
     }).catch((err) => {
         console.log(err.message)
     })
@@ -66,19 +64,18 @@ app.put('/donors/:id', (req, res) => {
     Donor.findByIdAndUpdate(req.params.id, req.body)
     .then(donor => {
         res.redirect(`/donors/${donor._id}`)
+
     }).catch(err => {
         console.log(err.message)
     })
 })
 
-//
+// APPROVE DONOR PROFILES
 app.get('/donors/:id/edit', (req, res) => {
     Donor.findById(req.params.id, function(err, donor) {
         res.render('edit-donor', {donor: donor})
     })
 })
-
-
 
 // DELETE DONOR PROFILES
 app.delete('/donors/:id', (req, res) => {
@@ -86,6 +83,16 @@ app.delete('/donors/:id', (req, res) => {
         res.redirect('/donors')
     }).catch((err) => {
         console.log(err.message)
+    })
+})
+
+app.get('/public-donors', (req, res) => {
+    Donor.find()
+    .then(donors => {
+        res.render('public-donors', {donors: donors});
+    })
+    .catch(err => {
+        console.log(err)
     })
 })
 

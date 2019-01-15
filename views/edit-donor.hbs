@@ -1,11 +1,9 @@
 <form method='POST' action="/donors/{{donor._id}}?_method=PUT">
     <fieldset>
+        <h1>edit</h1>
         <p>
             <label for="status"> Status </label>
-            <select>
-                <option value="{{donor.status}}"> Approve </option>
-                <option value="{{donor.status}}"> Decline </option>
-            </select>
+            <input id="status" type="text" name="status" value="{{donor.status}}">
         </p>
         <button type="submit" name="button"> Submit </button>
     </fieldset>

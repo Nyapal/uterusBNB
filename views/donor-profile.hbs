@@ -1,0 +1,18 @@
+<h1>donor profile.hbs</h1>
+
+{{donor.name}}
+{{donor.age}}
+{{donor.race}}
+
+<p>Approved: {{donor.status}}</p>
+
+<p>
+    <button type="button" name="button">
+        <a href="/donors/{{donor._id}}/edit"> Edit </a>
+    </button>
+</p>
+<p>
+    <form method="POST" action="/donors/{{donor._id}}?_method=DELETE">
+        <button type="submit"> Delete </button>
+    </form>
+</p>

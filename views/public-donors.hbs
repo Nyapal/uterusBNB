@@ -1,11 +1,7 @@
-<h1>{{donor.name}}</h1>
-<h2>{{donor.age}}</h2>
-<p>{{donor.race}}</p>
-<p>{{donor.status}}</p>
+<h1>public-donors.hbs</h1>
 
-<p>
-    <form method="POST" action="/donors/{{donor._id}}?_method=DELETE">
-        <button type="submit" name="button">Delete</button>
-    </form>
-</p>
-<p><a href="/donors/{{donor._id}}/edit">Edit</a></p>
+{{#each donors}}
+    {{#if this.status}}
+        {{this.name}}
+    {{/if}}
+{{/each}}

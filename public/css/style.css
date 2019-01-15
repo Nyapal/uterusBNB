@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+a {
+  color: green;
+  text-decoration: none; /* no underline */
+}
+
+/* NAVIGATION */
+.navbar {
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+/* LANDING PAGE */
+.landing-page {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.login-link {
+    margin-top: 150px;
+}
