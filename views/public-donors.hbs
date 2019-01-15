@@ -1,7 +1,8 @@
-<h1>public-donors.hbs</h1>
 
 {{#each donors}}
     {{#if this.status}}
         {{this.fname}}
+    {{else}}
+        <h1>There Are No Available Donors at this time</h1>
     {{/if}}
 {{/each}}
