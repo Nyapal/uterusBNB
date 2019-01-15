@@ -1,22 +1,27 @@
 <div class="donors col-md-6" align="center">
     <h1> Potential Donors </h1>
     {{#each donors}}
+    {{#unless this.status }}
     <h2>
         <a href="/donors/{{this._id}}">
             {{this.fname}}
         </a>
     </h2>
+        {{/unless}}
     {{/each}}
+
 
 </div>
 <div class="families col-md-6" align="center">
     <h1> Approved Donors </h1>
-    {{#if this.status}}
-        {{this.fname}}
+    {{#each donors}}
+        {{#if this.status}}
+        <a href="/donors/{{this._id}}">
+            {{this.fname}}
+        </a>
+        {{/if}}
     {{else}}
-        <!-- <h1 style="position:fixed; top: 50%; left: 50%;transform: translate(-50%, -50%);
-        text-align: center;"> No Available Donors at this time </h1> -->
         <h4 style="text-align:center"> No Available Donors at this time </h4>
-    {{/if}}
+    {{/each}}
 
 </div>

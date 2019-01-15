@@ -1,21 +1,47 @@
 <div class="container">
-    {{donor.fname}}
-    {{donor.lname}}
-    {{donor.age}}
-    {{donor.race}}
+    <div class="" align="center">
+        <table>
+            <h1>
+                {{donor.fname}}
+                {{donor.lname}}
+            </h1>
+            <tr>
+                <td class="donor-profile-td"> Age: </td>
+                <td class="donor-profile-td"> {{donor.age}} </td>
+                <td class="donor-profile-td"> Height: </td>
+                <td class="donor-profile-td"> {{donor.height}} </td>
+            </tr>
+            <tr>
+                <td class="donor-profile-td"> Eye Color: </td>
+                <td class="donor-profile-td"> {{donor.eyes}} </td>
+                <td class="donor-profile-td"> Hair Color: </td>
+                <td class="donor-profile-td"> {{donor.hair}} </td>
+            </tr>
+            <tr>
+                <td class="donor-profile-td"> Race: </td>
+                <td class="donor-profile-td"> {{donor.race}} </td>
+                <td class="donor-profile-td"> Ethnicity: </td>
+                <td class="donor-profile-td"> {{donor.ethnicity}} </td>
+            </tr>
+            <tr>
+                <td class="donor-profile-td"> Public Profile: </td>
+                <td class="donor-profile-td">  </td>
+                <td class="donor-profile-td"> {{donor.status}} </td>
+            </tr>
+            <tr>
+                <td class="donor-profile-td"> </td>
+                <td class="donor-profile-td">
+                    <button type="button" name="button">
+                        <a href="/donors/{{donor._id}}/edit"> Edit </a>
+                    </button>
+                </td>
+                <td class="donor-profile-td"> </td>
+                <td class="donor-profile-td">
+                    <form method="POST" action="/donors/{{donor._id}}?_method=DELETE">
+                        <button type="submit"> Delete </button>
+                    </form>
+                </td>
+            </tr>
+        </table>
 
 </div>
-
-
-<p>Approved: {{donor.status}}</p>
-
-<p>
-    <button type="button" name="button">
-        <a href="/donors/{{donor._id}}/edit"> Edit </a>
-    </button>
-</p>
-<p>
-    <form method="POST" action="/donors/{{donor._id}}?_method=DELETE">
-        <button type="submit"> Delete </button>
-    </form>
-</p>
