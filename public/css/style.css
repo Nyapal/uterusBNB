@@ -4,6 +4,10 @@ html, body {
     font-family: 'Montserrat', sans-serif !important;
 }
 
+a:hover {
+  color: rgb(218,165,32) !important;
+}
+
 /* NAVIGATION */
 .navbar {
     margin:0;
@@ -47,9 +51,6 @@ td, th {
     padding: 15px;
     border: none;
 }
-
-/* LOGIN PAGE */
-
 
 /* DONOR PROFILE */
 .donor-profile-td {
