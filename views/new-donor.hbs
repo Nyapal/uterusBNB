@@ -1,20 +1,18 @@
-<form method="POST" action="/donors">
-    <fieldset>
-        <legend> Egg Donor Application </legend>
-        <p>
-            <label for="name"> Name </label>
-            <input id="name" type="text" name="name" value="{{donor.name}}">
-        </p>
-        <p>
-            <label for="age"> Age </label>
-            <input id="age" type="text" name="age" value="{{donor.age}}">
-        </p>
-        <p>
-            <label for="race"> Race </label>
-            <input id="race" type="text" name="race" value="{{donor.race}}">
-        </p>
-    </fieldset>
-    <p>
-        <button type="submit" name="button"> Submit </button>
-    </p>
-</form>
+<div class="container">
+    <h2>Donor Application</h2>
+    <form method="POST" action="/donors">
+        <div class="donor-application">
+            <input class="col-md-4 donor-inputs" id="fname" type="text" name="fname" value="{{donor.fname}}" placeholder="First Name">
+            <input class="col-md-4 donor-inputs" id="lname" type="text" name="lname" value="{{donor.lname}}"  placeholder="Last Name">
+                <br>
+            <input class="col-md-4 donor-inputs" id="age" type="text" name="age" value="{{donor.age}}" placeholder="Age">
+            <input class="col-md-4 donor-inputs" id="height" type="text" name="hair" value="{{donor.height}}" placeholder="Height">
+                <br>
+            <input class="col-md-4 donor-inputs" id="eyes" type="text" name="eyes" value="{{donor.eyes}}" placeholder="Eye Color">
+            <input class="col-md-4 donor-inputs" id="hair" type="text" name="hair" value="{{donor.hair}}" placeholder="Hair Color">
+                <br>
+            <input class="col-md-4 donor-inputs" id="race" type="text" name="race" value="{{donor.race}}" placeholder="Race">
+            <input class="col-md-4 donor-inputs" id="ethnicity" type="text" name="ethnicity" value="{{donor.ethnicity}}" placeholder="Ethnicity">
+            </div>
+        </form>
+</div>

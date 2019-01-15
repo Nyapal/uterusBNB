@@ -18,6 +18,12 @@ const Donor = mongoose.model('Donor', {
     status: { type: Boolean, default: 0 }
 });
 
+const Family = mongoose.model('Family', {
+    name: String,
+    email: String,
+    message: String
+})
+
 //LANDING PAGE
 app.get('/', (req, res) => {
     res.render('home')
@@ -39,6 +45,10 @@ app.get('/donors/new', (req, res) => {
     res.render('new-donor', {})
 })
 
+// NEW FAMILY APPLICATION
+app.get('/families', (req, res) => {
+    res.render('families', {})
+})
 
 app.post('/donors', (req, res) => {
     Donor.create(req.body).then((donor) => {

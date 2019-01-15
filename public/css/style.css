@@ -3,17 +3,13 @@ html, body {
     margin: 0;
 }
 
-a {
-  color: green;
-  text-decoration: none; /* no underline */
-}
-
 /* NAVIGATION */
 .navbar {
     margin:0;
     padding:0;
     text-align:center;
 }
+
 /* LANDING PAGE */
 .landing-page {
     position: fixed;
@@ -25,3 +21,14 @@ a {
 .login-link {
     margin-top: 150px;
 }
+
+/* DONOR APPLICATION */
+.donor-application {
+    text-align: center;
+}
+.donor-inputs {
+    margin: 20px 5px;
+}
+
+
+/* LOGIN PAGE */

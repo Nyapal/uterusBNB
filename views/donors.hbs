@@ -1,9 +1,14 @@
-<h1>Donors.HBS</h1>
-
-{{#each donors}}
+<div class="donors col-md-6">
+    <h1> Donors </h1>
+    {{#each donors}}
     <h2>
         <a href="/donors/{{this._id}}">
             {{this.name}}
         </a>
     </h2>
-{{/each}}
+    {{/each}}
+</div>
+<div class="families col-md-6">
+    <h1> Families </h1>
+
+</div>
