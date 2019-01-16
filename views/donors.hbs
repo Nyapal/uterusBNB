@@ -16,9 +16,11 @@
     <h1> Approved Donors </h1>
     {{#each donors}}
         {{#if this.status}}
-        <a href="/donors/{{this._id}}">
-            {{this.fname}}
-        </a>
+        <h2>
+            <a href="/donors/{{this._id}}">
+                {{this.fname}}
+            </a>
+        </h2>
         {{/if}}
     {{else}}
         <p> No Available Donors at this time </p>
