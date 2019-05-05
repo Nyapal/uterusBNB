@@ -11,105 +11,17 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
-const Donor = mongoose.model('Donor', {
-    fname: String,
-    lname: String,
-    age: String,
-    height: String,
-    eyes: String,
-    hair: String,
-    race: String,
-    ethnicity: String,
-    status: { type: Boolean, default: 0 }
-});
-
-
-const Family = mongoose.model('Family', {
-    name: String,
-    email: String,
-    message: String
-})
+require('./controllers/auth.js')(app);
+require('./controllers/donors.js')(app);
 
 //LANDING PAGE
 app.get('/', (req, res) => {
     res.render('home')
 })
 
-// ALL DONORS - Nurses view only
-app.get('/donors', (req, res) => {
-    Donor.find()
-    .then(donors => {
-        res.render('donors', {donors: donors});
-    })
-    .catch(err => {
-        console.log(err)
-    })
-})
-
-// NEW DONOR APPLICATION
-app.get('/donors/new', (req, res) => {
-    res.render('new-donor', {})
-})
-
 // NEW FAMILY APPLICATION
 app.get('/families', (req, res) => {
     res.render('families', {})
-})
-
-app.post('/donors', (req, res) => {
-    Donor.create(req.body).then((donor) => {
-        console.log(donor);
-        res.redirect('/thank-you')
-    }).catch((err) => {
-        console.log(err.message)
-    })
-})
-
-// INDIVIDUAL DONOR PROFILES
-app.get('/donors/:id', (req, res) => {
-    Donor.findById(req.params.id).then((donor) => {
-        console.log(donor)
-        res.render('donor-profile', {donor: donor})
-    }).catch((err) => {
-        console.log(err.message)
-    })
-})
-
-//
-app.put('/donors/:id', (req, res) => {
-    Donor.findByIdAndUpdate(req.params.id, req.body)
-    .then(donor => {
-        res.redirect(`/donors/${donor._id}`)
-
-    }).catch(err => {
-        console.log(err.message)
-    })
-})
-
-// APPROVE DONOR PROFILES
-app.get('/donors/:id/edit', (req, res) => {
-    Donor.findById(req.params.id, function(err, donor) {
-        res.render('edit-donor', {donor: donor})
-    })
-})
-
-// DELETE DONOR PROFILES
-app.delete('/donors/:id', (req, res) => {
-    Donor.findByIdAndRemove(req.params.id).then((donor) => {
-        res.redirect('/donors')
-    }).catch((err) => {
-        console.log(err.message)
-    })
-})
-
-app.get('/public-donors', (req, res) => {
-    Donor.find()
-    .then(donors => {
-        res.render('public-donors', {donors: donors});
-    })
-    .catch(err => {
-        console.log(err)
-    })
 })
 
 app.get('/families', (req, res) => {
@@ -126,9 +38,9 @@ app.get('/thank-you', (req, res) => {
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-    console.log('listening')
+    console.log(`listening on port ${port}` )
     const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/donors';
-    mongoose.connect(db)
+    mongoose.connect(db, { useNewUrlParser: true })
 })
 
 module.exports = app
