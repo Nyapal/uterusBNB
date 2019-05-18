@@ -10,7 +10,7 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
-
+// convert this shit to javascript sis 
 require('./controllers/auth.js')(app);
 require('./controllers/donors.js')(app);
 
@@ -36,7 +36,7 @@ app.get('/thank-you', (req, res) => {
     res.render('thank-you')
 })
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 app.listen(port, () => {
     console.log(`listening on port ${port}` )
     const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/donors';
