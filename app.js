@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 // convert this shit to javascript sis 
+// hello i need to change this file
 require('./controllers/auth.js')(app);
 require('./controllers/donors.js')(app);
 
