@@ -12,7 +12,8 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 require('./controllers/auth.js')(app);
 require('./controllers/donors.js')(app);
-
+//
+//still working on converting this project to react 
 //LANDING PAGE
 app.get('/', (req, res) => {
     res.render('home')
