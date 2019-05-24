@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 })
 
 // NEW FAMILY APPLICATION
+// doing real important things here 
 app.get('/families', (req, res) => {
     res.render('families', {})
 })
