@@ -12,27 +12,23 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 require('./controllers/auth.js')(app);
 require('./controllers/donors.js')(app);
-//
-//still working on converting this project to react 
+
 //LANDING PAGE
 app.get('/', (req, res) => {
     res.render('home')
 })
 
 // NEW FAMILY APPLICATION
-// doing real important things here 
-app.get('/families', (req, res) => {
-    res.render('families', {})
-})
-
 app.get('/families', (req, res) => {
     res.render('families')
 })
 
+// LOGIN
 app.get('/login', (req, res) => {
     res.render('login')
 })
 
+// THANK YOU PAGE
 app.get('/thank-you', (req, res) => {
     res.render('thank-you')
 })
