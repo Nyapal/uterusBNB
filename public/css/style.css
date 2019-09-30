@@ -1,10 +1,11 @@
 html, body {
   height: 100%;
-  font-family: "Montserrat" !important;
+  font-family: 'Montserrat' !important;
+  background-color: #CADDEC !important;
 }
 
 a:hover {
-  color: goldenrod !important;
+  color: #E1D143 !important;
 }
 
 /* NAVIGATION */
@@ -19,7 +20,8 @@ a:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -32,7 +34,8 @@ a:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -59,5 +62,4 @@ td, th {
 .donor-profile-td {
   padding: 10px;
 }
-
 /*# sourceMappingURL=style.css.map */

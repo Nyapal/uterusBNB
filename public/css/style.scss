@@ -1,11 +1,14 @@
+$link_color: #E1D143;
+$page_color: #CADDEC;
 
 html, body {
   height: 100%;
   font-family: 'Montserrat' !important;
+  background-color: $page_color !important;
 }
 
 a:hover {
-  color: rgb(218, 165, 32) !important;
+  color: $link_color !important;
 }
 
 /* NAVIGATION */
